@@ -2,7 +2,7 @@ import random
 import pyfiglet
 
 def choose_word():
-    words = ["apple", "banana", "cherry", "date", "elderberry"]
+    words = ["apple", "banana", "cherry", "date", "elderberry", "drexel"]
     return random.choice(words)
 
 def display(word, guesses):
@@ -13,11 +13,11 @@ def game():
     attempts = 6
     guesses = []
 
-    print(pyfiglet.figlet_format("Word Guess"))
+    print(pyfiglet.figlet_format("Snowman"))
 
     while attempts > 0:
-        print(f"Remaining attempts: {attempts}")
-        print("Word: " + display(word, guesses))
+        print(f"Remaining attempts:{attempts}")
+        print("Word: " + display(word,guesses))
 
         guess = input("Guess a letter: ").lower()
 
@@ -31,13 +31,15 @@ def game():
             print("Correct!")
             if all([char in guesses for char in word]):
                 print(f"You've guessed the word: {word}")
+                print(pyfiglet.figlet_format(f"{word}"))
                 break
         else:
             print("Incorrect!")
             attempts -= 1
 
     if attempts == 0:
-        print(f"Game over! The word was {word}")
+        print(f"Game over! The word was")
+        print(pyfiglet.figlet_format(f"{word}"))
 
 if __name__ == "__main__":
     game()
